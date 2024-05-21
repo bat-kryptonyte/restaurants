@@ -62,7 +62,20 @@ const RootQueryType = new GraphQLObjectType({
   fields: {
     appetizers: {
       type: new GraphQLList(GenericMenuItemType),
-      resolve: () => menuData.appetizers,
+      args: {
+        minPrice: { type: GraphQLFloat },
+        maxPrice: { type: GraphQLFloat },
+        descriptionContains: { type: GraphQLString },
+      },
+      resolve: (_, args) => {
+        return menuData.appetizers.filter(
+          (item) =>
+            (!args.minPrice || item.price >= args.minPrice) &&
+            (!args.maxPrice || item.price <= args.maxPrice) &&
+            (!args.descriptionContains ||
+              item.description.includes(args.descriptionContains)),
+        );
+      },
     },
     sandwiches: {
       type: new GraphQLList(SandwichItemType),

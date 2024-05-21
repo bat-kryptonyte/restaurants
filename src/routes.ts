@@ -7,39 +7,48 @@ const router = Router();
 router.use(requestWrapper);
 
 router.get('/appetizers', (req, res) => {
-  res.json(menuData.appetizers);
+  const filteredItems = req.filterItems(menuData.appetizers);
+  res.json(filteredItems);
 });
 
 router.get('/sandwiches', (req, res) => {
-  res.json(menuData.sandwiches);
+  const filteredItems = req.filterItems(menuData.sandwiches);
+  res.json(filteredItems);
 });
 
 router.get('/entrees', (req, res) => {
-  res.json(menuData.entrees);
+  const filteredItems = req.filterItems(menuData.entrees);
+  res.json(filteredItems);
 });
 
 router.get('/soup-salad-combos', (req, res) => {
-  res.json(menuData.soupSaladCombos);
+  const filteredItems = req.filterItems(menuData.soupSaladCombos);
+  res.json(filteredItems);
 });
 
 router.get('/fajitas', (req, res) => {
-  res.json(menuData.fajitas);
+  const filteredItems = req.filterItems(menuData.fajitas);
+  res.json(filteredItems);
 });
 
 router.get('/tacos', (req, res) => {
-  res.json(menuData.tacos);
+  const filteredItems = req.filterItems(menuData.tacos);
+  res.json(filteredItems);
 });
 
 router.get('/enchiladas', (req, res) => {
-  res.json(menuData.enchiladas);
+  const filteredItems = req.filterItems(menuData.enchiladas);
+  res.json(filteredItems);
 });
 
 router.get('/quiche', (req, res) => {
-  res.json(menuData.quiche);
+  const filteredItems = req.filterItems(menuData.quiche);
+  res.json(filteredItems);
 });
 
 router.get('/green-salads', (req, res) => {
-  res.send(JSON.stringify(menuData.greenSalads, null, 2));
+  const filteredItems = req.filterItems(menuData.greenSalads);
+  res.json(filteredItems);
 });
 
 export default router;
