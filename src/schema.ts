@@ -17,7 +17,6 @@ const RootQueryType = new GraphQLObjectType({
       type: new GraphQLList(MenuItemType),
       resolve: () => menuData.appetizers,
     },
-    // Add other menu sections here...
   },
 });
 
