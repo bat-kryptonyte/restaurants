@@ -2,12 +2,9 @@ import { Router } from 'express';
 import { menuData } from './menuData';
 import { requestWrapper } from './middleware';
 
-
 const router = Router();
 
 router.use(requestWrapper);
-
-
 
 router.get('/appetizers', (req, res) => {
   res.json(menuData.appetizers);
@@ -42,7 +39,7 @@ router.get('/quiche', (req, res) => {
 });
 
 router.get('/green-salads', (req, res) => {
-    res.send(JSON.stringify(menuData.greenSalads, null, 2));
-  });
+  res.send(JSON.stringify(menuData.greenSalads, null, 2));
+});
 
 export default router;

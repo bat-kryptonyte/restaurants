@@ -15,7 +15,6 @@ app.use(
   }),
 );
 
-
 app.set('json spaces', 2);
 
 app.use('/api', restRoutes);
