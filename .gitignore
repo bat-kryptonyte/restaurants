@@ -2,10 +2,11 @@
 
 # dependencies
 /node_modules
+/dist
 /.pnp
 .pnp.js
 bun.lockb
-
+ß
 # testing
 /coverage
 
