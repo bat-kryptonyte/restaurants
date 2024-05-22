@@ -5,7 +5,7 @@ import {
   GraphQLString,
   GraphQLFloat,
 } from 'graphql';
-import { menuData } from './menuData';
+import { menuData } from './utils/menuData';
 
 const GenericMenuItemType = new GraphQLObjectType({
   name: 'MenuItem',
@@ -62,19 +62,8 @@ const RootQueryType = new GraphQLObjectType({
   fields: {
     appetizers: {
       type: new GraphQLList(GenericMenuItemType),
-      args: {
-        minPrice: { type: GraphQLFloat },
-        maxPrice: { type: GraphQLFloat },
-        descriptionContains: { type: GraphQLString },
-      },
-      resolve: (_, args) => {
-        return menuData.appetizers.filter(
-          (item) =>
-            (!args.minPrice || item.price >= args.minPrice) &&
-            (!args.maxPrice || item.price <= args.maxPrice) &&
-            (!args.descriptionContains ||
-              item.description.includes(args.descriptionContains)),
-        );
+      resolve: () => {
+        return menuData.appetizers;
       },
     },
     sandwiches: {
@@ -112,6 +101,35 @@ const RootQueryType = new GraphQLObjectType({
     greenSalads: {
       type: new GraphQLList(GenericMenuItemType),
       resolve: () => menuData.greenSalads,
+    },
+
+    getMenuItemsByCategory: {
+      type: new GraphQLList(GenericMenuItemType),
+      args: {
+        category: { type: GraphQLString },
+      },
+      resolve: (_, args) => {
+        return menuData[args.category];
+      },
+    },
+    getAllMenuItems: {
+      type: new GraphQLList(GenericMenuItemType),
+      resolve: () => {
+        return Object.values(menuData).flat();
+      },
+    },
+    customQuery: {
+      type: new GraphQLList(GenericMenuItemType),
+      args: {
+        search: { type: GraphQLString },
+      },
+      resolve: (_, args) => {
+        const allItems = Object.values(menuData).flat();
+        return allItems.filter(
+          (item) =>
+            'description' in item && item.description.includes(args.search),
+        );
+      },
     },
   },
 });

@@ -1,4 +1,4 @@
-import { BreadType, SandwichType } from './utils/enum';
+import { BreadType, SandwichType } from './enum';
 
 interface SandwichItem {
   name: string;
@@ -14,7 +14,29 @@ interface SandwichCategory {
   items: SandwichItem[];
 }
 
-export const menuData = {
+interface MenuData {
+  appetizers: { name: string; description: string; price: number }[];
+  sandwiches: (
+    | {
+        type: string;
+        bread: string[];
+        halfPrice: number;
+        fullPrice: number;
+        items: any[];
+      }
+    | any
+  )[];
+  entrees: any[];
+  soupSaladCombos: any[];
+  fajitas: any[];
+  tacos: any[];
+  enchiladas: any[];
+  quiche: any[];
+  greenSalads: any[];
+  [key: string]: any[]; // This line allows indexing with any string key returning an array of any type
+}
+
+export const menuData: MenuData = {
   appetizers: [
     {
       name: 'Iceberg Wedge Salad with House Cured Bacon',

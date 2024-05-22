@@ -159,4 +159,42 @@ describe('GraphQL Schema', () => {
     expect(result.data).toHaveProperty('greenSalads');
     expect(result.data!.greenSalads.length).toBeGreaterThan(0);
   });
+
+  it('should fetch all menu items', async () => {
+    const query = `
+      {
+        getAllMenuItems {
+          name
+          description
+          price
+        }
+      }
+    `;
+    const result = await graphql(schema, query);
+    expect(result.errors).toBeUndefined();
+    expect(result.data).toHaveProperty('getAllMenuItems');
+    expect(result.data!.getAllMenuItems.length).toBeGreaterThan(0);
+  });
+
+  it('should fetch menu items by description search', async () => {
+    const search = 'chicken';
+    const query = `
+      {
+        customQuery(search: "${search}") {
+          name
+          description
+          price
+        }
+      }
+    `;
+    const result = await graphql(schema, query);
+    expect(result.errors).toBeUndefined();
+    expect(result.data).toHaveProperty('customQuery');
+    expect(result.data!.customQuery.length).toBeGreaterThan(0);
+    expect(
+      result.data!.customQuery.every((item: { description: string }) =>
+        item.description.includes(search),
+      ),
+    ).toBe(true);
+  });
 });

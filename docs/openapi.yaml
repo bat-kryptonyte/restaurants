@@ -1,0 +1,55 @@
+openapi: 3.0.0
+info:
+  title: Restaurant Menu API
+  version: 1.0.0
+  description: API for accessing restaurant menu items by category.
+servers:
+  - url: http://localhost:4000/api
+paths:
+  /{category}:
+    get:
+      summary: Get menu items by category
+      parameters:
+        - in: path
+          name: category
+          required: true
+          schema:
+            type: string
+          description: Category of the menu items
+        - in: query
+          name: minPrice
+          schema:
+            type: string
+          description: Minimum price filter
+        - in: query
+          name: maxPrice
+          schema:
+            type: string
+          description: Maximum price filter
+        - in: query
+          name: descriptionContains
+          schema:
+            type: string
+          description: Filter items that contain this text in their description
+      responses:
+        '200':
+          description: An array of menu items
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MenuItem'
+        '404':
+          description: Category not found
+components:
+  schemas:
+    MenuItem:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        price:
+          type: number
