@@ -1,3 +1,19 @@
+import { BreadType, SandwichType } from './utils/enum';
+
+interface SandwichItem {
+  name: string;
+  description: string;
+  price?: number;
+}
+
+interface SandwichCategory {
+  type: SandwichType;
+  bread: BreadType[];
+  halfPrice?: number;
+  fullPrice?: number;
+  items: SandwichItem[];
+}
+
 export const menuData = {
   appetizers: [
     {
@@ -18,8 +34,8 @@ export const menuData = {
   ],
   sandwiches: [
     {
-      type: 'Cold',
-      bread: 'sourdough, whole wheat, or rye',
+      type: SandwichType.Cold,
+      bread: [BreadType.Sourdough, BreadType.WholeWheat, BreadType.Rye],
       halfPrice: 7.95,
       fullPrice: 9.25,
       items: [
@@ -33,8 +49,8 @@ export const menuData = {
       ],
     },
     {
-      type: 'Hot',
-      bread: 'whole wheat or cheese & onion bun',
+      type: SandwichType.Hot,
+      bread: [BreadType.WholeWheat, BreadType.CheeseOnionBun],
       items: [
         {
           name: 'Southwest Chicken Breast',
@@ -66,7 +82,7 @@ export const menuData = {
         {
           name: 'Herb Marinated Top Sirloin',
           description:
-            'Crimini Mushrooms, Caramelized Onion, Gorgonzola, Basil Aioli, Served Open Faced on Fococcia',
+            'Crimini Mushrooms, Caramelized Onion, Gorgonzola, Basil Aioli, Served Open Faced on Focaccia',
           price: 10.95,
         },
         {
