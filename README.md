@@ -1,4 +1,4 @@
-# Restaurant Menu API Documentation
+# Restaurant Menu API 
 
 ### Overview
 
