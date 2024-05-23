@@ -1,4 +1,4 @@
-# Restaurant Menu API 
+# Restaurant Menu API Documentation
 
 ### Overview
 
@@ -42,7 +42,9 @@ Retrieve menu items filtered by category with optional query parameters to filte
 
 #### Request
 
-**GET /api/entrees?minPrice=10&maxPrice=20&descriptionContains=pasta**
+```
+GET /api/entrees?minPrice=10&maxPrice=20&descriptionContains=pasta
+```
 
 #### Response
 
