@@ -5,7 +5,7 @@ describe('GET /appetizers', () => {
   it('should filter appetizers by price and description', async () => {
     const minPrice = '7';
     const maxPrice = '10';
-    const descriptionContains = 'bacon';
+    const descriptionContains = 'tomato';
 
     const response = await request(app)
       .get('/api/appetizers')
