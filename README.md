@@ -1,16 +1,16 @@
-# Restaurant Menu API
+# restaurant menu api
 
-### Overview
+### overview
 
 The Restaurant Menu API provides access to various categories of menu items such as appetizers, entrees, sandwiches, and more. This API allows users to retrieve menu items filtered by category and optional criteria such as price range and description keywords.
 
-### Base URL
+### base url
 
 The API is served under the base URL ```http://localhost:4000/api```. Ensure that the server is running on this port or configure it accordingly.
 
-### Endpoints
+### endpoints
 
-#### Get Menu Items by Category
+#### fetch menu item by category
 
 Retrieve menu items filtered by category with optional query parameters to filter further based on price and description.
 
@@ -30,23 +30,23 @@ Retrieve menu items filtered by category with optional query parameters to filte
   - Code: ```404 Not Found```
   - Content: ```{ error : "Category not found" }```
 
-### Data Model
+### data model
 
-#### MenuItem
+#### menu item
 ```
 name (string): The name of the menu item.
 description (string): Description of the menu item.
 price (number): Price of the menu item.
 ```
-### Examples
+### examples
 
-#### Request
+#### request
 
 ```
 GET /api/entrees?minPrice=10&maxPrice=20&descriptionContains=pasta
 ```
 
-#### Response
+#### response
 
 ```json
 [
