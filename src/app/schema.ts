@@ -5,7 +5,7 @@ import {
     GraphQLString,
     GraphQLFloat,
   } from 'graphql';
-  import { menuData } from './utils/menuData';
+  import { menuData } from '../utils/menuData';
   
   const GenericMenuItemType = new GraphQLObjectType({
     name: 'MenuItem',

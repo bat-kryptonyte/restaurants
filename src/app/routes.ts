@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import { menuData } from './utils/menuData';
-import { requestWrapper } from './utils/middleware';
+import { menuData } from '../utils/menuData';
+import { requestWrapper } from '../utils/middleware';
 import { Request, Response } from 'express';
 
 const router = Router();
