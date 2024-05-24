@@ -25,7 +25,7 @@ export const requestWrapper = (
         (!minPrice || item.price >= parseFloat(minPrice)) &&
         (!maxPrice || item.price <= parseFloat(maxPrice)) &&
         (!descriptionContains ||
-          item.description.includes(descriptionContains) || item.name.toLowerCase().includes(descriptionContains)),
+          item.description.toLowerCase().includes(descriptionContains) || item.name.toLowerCase().includes(descriptionContains)),
     );
   };
 

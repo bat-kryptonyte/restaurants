@@ -2,6 +2,7 @@ import { Router } from 'express';
 import { menuData } from '../utils/menuData';
 import { requestWrapper } from '../utils/middleware';
 import { Request, Response } from 'express';
+import { BreadType, SandwichType } from '../utils/enum';
 
 const router = Router();
 
@@ -19,6 +20,15 @@ export enum MenuCategory {
   GreenSalads = 'green-salads',
 }
 
+
+interface SandwichCategory {
+  type: SandwichType;
+  bread: BreadType[];
+  halfPrice?: number;
+  fullPrice?: number;
+  items: any[];
+}
+
 const genericMenuHandler = (req: Request, res: Response, category: string) => {
   const categoryData = menuData[category];
   if (!categoryData) {
@@ -32,6 +42,17 @@ Object.values(MenuCategory).forEach((category) => {
   router.get(`/${category}`, (req, res) =>
     genericMenuHandler(req, res, category),
   );
+});
+
+router.get('/sandwiches/:type', (req, res) => {
+  const { type } = req.params;
+  const sandwichesByType = menuData.sandwiches.filter(s => s.type.toLowerCase() === type.toLowerCase()) as SandwichCategory[];
+  if (sandwichesByType.length === 0) {
+    return res.status(404).send('Sandwich type not found');
+  }
+  const allItems = sandwichesByType.flatMap(s => s.items); 
+  const filteredItems = req.filterItems(allItems);
+  res.json(filteredItems);
 });
 
 export default router;

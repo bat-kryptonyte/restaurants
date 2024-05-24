@@ -44,7 +44,7 @@ npm test
 
 Retrieve menu items filtered by category with optional query parameters to filter further based on price and description.
 
-- URL: ```/api/{category}```
+- URL: ```/api/:category```
 - Method: ```GET```
 - URL Params:
   - Required: 
@@ -88,9 +88,30 @@ GET /api/entrees?minPrice=10&maxPrice=20&descriptionContains=pasta
 ]
 
 ```
+
+#### fetch filtered sandwiches by type
+
+Retrieves all sandwiches of a specified type, filters them based on query parameters such as `minPrice`, `maxPrice`, and `descriptionContains`, and returns the filtered list in JSON format.
+
+- URL: ```/api/sandwiches/:type```
+- Method: ```GET```
+- URL Params:
+  - Required: 
+    - ```type=[enum] - The type of sandwiches(hot or cold) to retrieve.```
+  - Optional:
+    - ```minPrice=[string] - Minimum price of the menu items.```
+    - ```maxPrice=[string] - Maximum price of the menu items.```
+    - ```descriptionContains=[string] - A keyword to search in the item descriptions.```
+- Success Response:
+  - Code: ```200 OK```
+  - Content: ```An array of menu items.```
+- Error Response:
+  - Code: ```404 Not Found```
+  - Content: ```{ error : "Type not found" }```
+
 ### GraphQL API
 
-The Restaurant Menu API also supports GraphQL queries, allowing clients to fetch data about menu items in a more flexible and efficient manner. Below are the GraphQL queries that can be used to interact with the API.
+The Restaurant Menu API also supports GraphQL queries. Below are the GraphQL queries that can be used to interact with the API.
 
 ### GraphQL Endpoint
 
