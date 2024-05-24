@@ -1,4 +1,4 @@
-# Restaurant Menu API Documentation
+# Restaurant Menu API
 
 ### Overview
 
@@ -6,7 +6,7 @@ The Restaurant Menu API provides access to various categories of menu items such
 
 ### Base URL
 
-The API is served under the base URL http://localhost:4000/api. Ensure that the server is running on this port or configure it accordingly.
+The API is served under the base URL ```http://localhost:4000/api```. Ensure that the server is running on this port or configure it accordingly.
 
 ### Endpoints
 
@@ -14,30 +14,30 @@ The API is served under the base URL http://localhost:4000/api. Ensure that the 
 
 Retrieve menu items filtered by category with optional query parameters to filter further based on price and description.
 
-- URL: /api/{category}
-- Method: GET
+- URL: ```/api/{category}```
+- Method: ```GET```
 - URL Params:
   - Required: 
-    - category=[string] - The category of menu items to retrieve.
+    - ```category=[string] - The category of menu items to retrieve.```
   - Optional:
-    - minPrice=[string] - Minimum price of the menu items.
-    - maxPrice=[string] - Maximum price of the menu items.
-    - descriptionContains=[string] - A keyword to search in the item descriptions.
+    - ```minPrice=[string] - Minimum price of the menu items.```
+    - ```maxPrice=[string] - Maximum price of the menu items.```
+    - ```descriptionContains=[string] - A keyword to search in the item descriptions.```
 - Success Response:
-  - Code: 200 OK
-  - Content: An array of menu items.
+  - Code: ```200 OK```
+  - Content: ```An array of menu items.```
 - Error Response:
-  - Code: 404 Not Found
-  - Content: { error : "Category not found" }
+  - Code: ```404 Not Found```
+  - Content: ```{ error : "Category not found" }```
 
 ### Data Model
 
 #### MenuItem
-
-- name (string): The name of the menu item.
-- description (string): Description of the menu item.
-- price (number): Price of the menu item.
-
+```
+name (string): The name of the menu item.
+description (string): Description of the menu item.
+price (number): Price of the menu item.
+```
 ### Examples
 
 #### Request
