@@ -28,7 +28,8 @@ npm install
 
 3. **start the server**
 ```
-npm start
+npm run build
+npm run start
 ```
 
 4. **running the test suite**
