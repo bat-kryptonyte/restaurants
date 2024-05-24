@@ -6,7 +6,8 @@ The Restaurant Menu API provides access to various categories of menu items such
 
 ### base url
 
-The API is served under the base URL ```http://localhost:4000/api```. Ensure that the server is running on this port or configure it accordingly.
+The API is served under the base URL ```http://localhost:4000/api``` 
+Ensure that the server is running on this port or configure it accordingly.
 
 ### endpoints
 
@@ -58,17 +59,17 @@ GET /api/entrees?minPrice=10&maxPrice=20&descriptionContains=pasta
 ]
 
 ```
-### Overview
+### GraphQL API
 
 The Restaurant Menu API also supports GraphQL queries, allowing clients to fetch data about menu items in a more flexible and efficient manner. Below are the GraphQL queries that can be used to interact with the API.
 
 ### GraphQL Endpoint
 
-The GraphQL endpoint is available at http://localhost:4000/graphql.
+The GraphQL endpoint is available at ```http://localhost:4000/graphql```
 
-### Queries
+### queries
 
-#### Fetch Menu Items by Category
+#### fetch menu items by category
 
 Fetch all menu items from a specific category.
 
@@ -84,7 +85,7 @@ query GetMenuItemsByCategory($category: String!) {
 }
 ```
 
-#### Fetch All Menu Items
+#### fetch all menu items
 
 Retrieve all menu items across all categories.
 
@@ -99,7 +100,7 @@ query GetAllMenuItems {
   }
 }
 ```
-#### Custom Search in Menu Items
+#### custom search in menu items
 
 Search for manu items that include a specific keyword in their description
 
