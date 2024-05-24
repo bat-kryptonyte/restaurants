@@ -56,3 +56,61 @@ GET /api/entrees?minPrice=10&maxPrice=20&descriptionContains=pasta
     "price": 12.95
   }
 ]
+
+```
+### Overview
+
+The Restaurant Menu API also supports GraphQL queries, allowing clients to fetch data about menu items in a more flexible and efficient manner. Below are the GraphQL queries that can be used to interact with the API.
+
+### GraphQL Endpoint
+
+The GraphQL endpoint is available at http://localhost:4000/graphql.
+
+### Queries
+
+#### Fetch Menu Items by Category
+
+Fetch all menu items from a specific category.
+
+- Query:
+
+```graphql
+query GetMenuItemsByCategory($category: String!) {
+  getMenuItemsByCategory(category: $category) {
+    name
+    description
+    price
+  }
+}
+```
+
+#### Fetch All Menu Items
+
+Retrieve all menu items across all categories.
+
+- Query:
+
+```graphql
+query GetAllMenuItems {
+  getAllMenuItems {
+    name
+    description
+    price
+  }
+}
+```
+#### Custom Search in Menu Items
+
+Search for manu items that include a specific keyword in their description
+
+- Query:
+
+```graphql
+query CustomQuery($search: String!) {
+    customQuery(search: $search) {
+      name
+      description
+      price
+    }
+}
+```
