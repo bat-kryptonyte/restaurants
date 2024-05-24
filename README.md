@@ -9,6 +9,35 @@ The Restaurant Menu API provides access to various categories of menu items such
 The API is served under the base URL ```http://localhost:4000/api``` 
 Ensure that the server is running on this port or configure it accordingly.
 
+### running locally
+
+To run the Restaurant Menu API locally, follow these steps:
+
+1. **clone the repo**
+   ```
+   git clone https://github.com/bat-kryptonyte/restaurants-node-boilerplate.git
+   cd restaurants-node-boilerplate
+   ```
+
+2. **install dependencies**
+Ensure you have Node.js and npm installed. Then, run:
+```
+npm install
+
+```
+
+3. **start the server**
+```
+npm start
+```
+
+4. **running the test suite**
+```
+npm test
+```
+
+
+
 ### endpoints
 
 #### fetch menu item by category
