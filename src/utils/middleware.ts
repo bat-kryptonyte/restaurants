@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 
 interface Item {
+  name: string;
   price: number;
   description: string;
 }
@@ -24,7 +25,7 @@ export const requestWrapper = (
         (!minPrice || item.price >= parseFloat(minPrice)) &&
         (!maxPrice || item.price <= parseFloat(maxPrice)) &&
         (!descriptionContains ||
-          item.description.includes(descriptionContains)),
+          item.description.includes(descriptionContains) || item.name.toLowerCase().includes(descriptionContains)),
     );
   };
 

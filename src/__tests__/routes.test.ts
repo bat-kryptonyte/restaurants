@@ -1,5 +1,10 @@
 import request from 'supertest';
-import app from '../index';
+import server from '../server';
+
+
+afterAll((done) => {
+    server.close(done);
+  });
 
 describe('GET /appetizers', () => {
   it('should filter appetizers by price and description', async () => {
@@ -7,7 +12,7 @@ describe('GET /appetizers', () => {
     const maxPrice = '10';
     const descriptionContains = 'tomato';
 
-    const response = await request(app)
+    const response = await request(server)
       .get('/api/appetizers')
       .query({ minPrice, maxPrice, descriptionContains })
       .expect(200);
@@ -21,7 +26,7 @@ describe('GET /entrees', () => {
     const minPrice = '15';
     const maxPrice = '30';
 
-    const response = await request(app)
+    const response = await request(server)
       .get('/api/entrees')
       .query({ minPrice, maxPrice })
       .expect(200);
@@ -36,7 +41,7 @@ describe('GET /fajitas', () => {
     const maxPrice = '20';
     const descriptionContains = 'beef';
 
-    const response = await request(app)
+    const response = await request(server)
       .get('/api/fajitas')
       .query({ minPrice, maxPrice, descriptionContains })
       .expect(200);
@@ -49,7 +54,7 @@ describe('GET /tacos', () => {
   it('should filter tacos by description', async () => {
     const descriptionContains = 'fish';
 
-    const response = await request(app)
+    const response = await request(server)
       .get('/api/tacos')
       .query({ descriptionContains })
       .expect(200);

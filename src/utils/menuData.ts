@@ -33,7 +33,7 @@ interface MenuData {
   enchiladas: any[];
   quiche: any[];
   greenSalads: any[];
-  [key: string]: any[]; // This line allows indexing with any string key returning an array of any type
+  [key: string]: any[]; 
 }
 
 export const menuData: MenuData = {
