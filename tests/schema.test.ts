@@ -1,5 +1,5 @@
 import { graphql } from 'graphql';
-import schema from '../app/schema';
+import schema from '../src/app/schema';
 
 describe('GraphQL Schema', () => {
   it('should fetch appetizers', async () => {

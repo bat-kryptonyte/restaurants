@@ -1,5 +1,5 @@
 import request from 'supertest';
-import server from '../app/server';
+import server from '../src/app/server';
 
 
 afterAll((done) => {
